@@ -56,3 +56,19 @@ CONTRIBUTORS
    Christopher Layne
    Chris Brody
 
+Compile for ANDROID
+1. make tool chain for build android platfomr
+$ ${ANDROID_NDK}/build/tools/make-standalone-toolchain.sh --platform=${APP_PLATFORM} -toolchain=$ANDROID_NDK/toolchains/arm-linux-androideabi-4.9 --arch=${ANDROID_NDK}/platforms/${APP_PLATFORM}/${ARCH} --install-dir=${OUTPUT_DIR}
+
+e.g:
+~/android-ndk-r14b/build/tools/make-standalone-toolchain.sh --platform=android-9 -toolchain=arm-linux-androideabi-4.8 --arch=arm --install-dir=~/android-ndk-r14b/alone-toolchain/
+
+2. Setting environment variable
+$ cd ${OUTPUT_DIR}
+$ export PATH=$PATH:`pwd`/bin
+
+3. Use arm-linux-androideabi-4.8 confiure libev with "-DANDROID" CPPFILAGS.
+$ cd ~/code/libev
+$ CPPFLAGS+="-DANDROID" ./configure --host=arm-linux-androideabi --prefix=`pwd`/android/arm
+
+4. the lib is in the ~/code/libev/.libs director, it looks like the --prefix doesn't make difference.
