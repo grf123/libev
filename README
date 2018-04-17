@@ -67,7 +67,7 @@ e.g:
 $ cd ${OUTPUT_DIR}
 $ export PATH=$PATH:`pwd`/bin
 
-3. Use arm-linux-androideabi-4.8 confiure libev with "-DANDROID" CPPFILAGS.
+3. Use arm-linux-androideabi-4.8 confiure libev with "-DANDROID" CPPFLAGS.
 $ cd ~/code/libev
 $ CPPFLAGS+="-DANDROID" ./configure --host=arm-linux-androideabi --prefix=`pwd`/android/arm
 
